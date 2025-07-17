@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",                         // Use modern JS features
+    "module": "commonjs",                    // Node.js compatible module system
+    "rootDir": "src",                        // Source files folder
+    "outDir": "dist",                        // Compiled files output
+    "strict": true,                          // Enable strict type-checking
+    "esModuleInterop": true,                 // For importing commonjs modules like express
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],                        // Include all TS files from src
+  "exclude": ["node_modules", "dist"]        // Exclude these folders
+}
