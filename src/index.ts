@@ -7,7 +7,14 @@ import fs from 'fs';
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://email-sender-frontend-seven.vercel.app/",
+    // origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 const PORT = 5000;
 
@@ -58,6 +65,10 @@ app.post('/send-email', upload.single('file'), async (req: Request, res: Respons
     console.error('Error sending email:', error);
     res.status(500).json({ message: 'Failed to send email' });
   }
+});
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Server is getting notice');
 });
 
 // Start server
